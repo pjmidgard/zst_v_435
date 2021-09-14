@@ -860,7 +860,7 @@ class compression:
                 
 
                         
-                        if i==1:
+                        if i==1 or i==2:
                             if Portal==9 and data[0:3]!=b'\xff\xd8\xff':
                                     print("Program close because this is file incorrect")
                                     raise SystemExit
