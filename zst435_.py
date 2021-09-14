@@ -1436,6 +1436,10 @@ class compression:
                                     if assxw==200:
                                         assx=10
                                         if assx==10:
+                                                if i==1:
+                                                    import zstandard
+                                                    jl=zstandard.compress(jl)
+                                                    jl=jl[4:]
                                                 if i==2:
                                                     if Portal==7:
                                                         jl= b'\x89\x50\x4e\x47'+jl
@@ -1443,10 +1447,7 @@ class compression:
                                                         jl=b'\x00\x00\x00\x18\x66\x74\x79\x70\x6d\x70\x34'+jl
                                                     if Portal==9:
                                     	                jl=b'\xff\xd8\xff'+jl
-                                    	        if i==1:
-                                                    import zstandard
-                                                    jl=zstandard.compress(jl)
-                                                    jl=jl[4:]
+                                    	       
                                                
                                                 f2.write(jl)
                                                 x2 = time()
