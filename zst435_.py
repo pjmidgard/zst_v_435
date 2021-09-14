@@ -795,6 +795,7 @@ class compression:
                     blockw1=4
                     nameas=name
                     nac=len(nameas)
+                    
                     if i==1:
                     
                         if nameas[nac-5:nac]==".docx":
@@ -809,7 +810,7 @@ class compression:
                             Portal=9
                         if nameas[nac-4:nac]==".mp4":
                             Portal=8
-
+                       
                         nameas=name+".bin"
                     if i==2:
                         nameas=name[:nac-4]
@@ -1435,7 +1436,7 @@ class compression:
                                     if assxw==200:
                                         assx=10
                                         if assx==10:
-                                                if i==1:
+                                                if i==2:
                                                     if Portal==7:
                                                         jl= b'\x89\x50\x4e\x47'+jl
                                                     if Portal==8:
