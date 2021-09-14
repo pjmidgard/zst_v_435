@@ -795,27 +795,29 @@ class compression:
                     blockw1=4
                     nameas=name
                     nac=len(nameas)
-                    
-                    if i==1:
-                    
-                        if nameas[nac-5:nac]==".docx":
-                            Portal=1
-                        if nameas[nac-4:nac]==".pdf":
-                            Portal=3
-                        if nameas[nac-4:nac]==".doc":
-                            Portal=1
-                        if nameas[nac-4:nac]==".png":
-                            Portal=7
-                        if nameas[nac-4:nac]==".jpg":
-                            Portal=9
-                        if nameas[nac-4:nac]==".mp4":
-                            Portal=8
-                       
-                        nameas=name+".bin"
+
                     if i==2:
                         nameas=name[:nac-4]
+                        nac=len(nameas)
                     
-                
+                    
+                    if nameas[nac-5:nac]==".docx":
+                        Portal=1
+                    if nameas[nac-4:nac]==".pdf":
+                        Portal=3
+                    if nameas[nac-4:nac]==".doc":
+                        Portal=1
+                    if nameas[nac-4:nac]==".png":
+                        Portal=7
+                    if nameas[nac-4:nac]==".jpg":
+                        Portal=9
+                    if nameas[nac-4:nac]==".mp4":
+                        Portal=8
+                      
+                    if i==1:
+                       
+                        nameas=name+".bin"
+                    
                     nac=len(nameas)
                     
                     countraz=0
@@ -860,7 +862,7 @@ class compression:
                 
 
                         
-                        if i==1 or i==2:
+                        if i==1:
                             if Portal==9 and data[0:3]!=b'\xff\xd8\xff':
                                     print("Program close because this is file incorrect")
                                     raise SystemExit
@@ -1440,6 +1442,8 @@ class compression:
                                                     import zstandard
                                                     jl=zstandard.compress(jl)
                                                     jl=jl[4:]
+                                               
+
                                                 if i==2:
                                                     if Portal==7:
                                                         jl= b'\x89\x50\x4e\x47'+jl
@@ -1447,8 +1451,7 @@ class compression:
                                                         jl=b'\x00\x00\x00\x18\x66\x74\x79\x70\x6d\x70\x34'+jl
                                                     if Portal==9:
                                     	                jl=b'\xff\xd8\xff'+jl
-                                    	       
-                                               
+                                    	                
                                                 f2.write(jl)
                                                 x2 = time()
                                                 x3=x2-x
