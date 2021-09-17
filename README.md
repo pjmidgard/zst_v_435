@@ -13,7 +13,7 @@ ul; cl; .bin
 
 c2; u2 .bin.bin
 
-Jurijus Pacalovas have written a program.
+Jurijus Pacalovas have develop a program.
 
 4.34 v. zst
 
